@@ -1,0 +1,1 @@
+﻿1. Install Typescript SDK 2.7.2 to build this project in VS 2017

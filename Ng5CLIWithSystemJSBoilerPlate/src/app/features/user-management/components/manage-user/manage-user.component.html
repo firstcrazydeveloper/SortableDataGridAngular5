@@ -1,0 +1,179 @@
+﻿<form novalidate (ngSubmit)="onSubmit(userFrm)" [formGroup]="userFrm">
+    <div>
+        <h1 mat-dialog-title><span><mat-icon>create</mat-icon>{{modalTitle}}</span></h1>
+    </div>
+    <div style="padding-bottom:1px;background-color:#d8d8d8"></div>
+    <div mat-dialog-content class="mat-dialog-container">
+        <div class="example-container mat-dialog-container" style="margin-top:20px;margin-bottom:20px">
+            <mat-form-field>
+                <input matInput placeholder="First Name" formControlName="FirstName">
+                <div *ngIf="formErrors.FirstName" class="text-danger">
+                    {{ formErrors.FirstName }}
+                </div>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="email" matInput placeholder="Email" formControlName="Email">
+                <div *ngIf="formErrors.Email" class="text-danger">
+                    {{ formErrors.Email }}
+                </div>
+            </mat-form-field>
+
+            <mat-radio-group formControlName="Gender">
+                <mat-radio-button *ngFor="let gndr of gender" [value]="gndr">
+                    {{gndr}}
+                </mat-radio-button>
+            </mat-radio-group>
+            <div *ngIf="formErrors.Gender" class="text-danger">
+                {{ formErrors.Gender }}
+            </div>
+            <mat-form-field>
+                <input matInput placeholder="City" formControlName="City">
+                <div *ngIf="formErrors.City" class="text-danger">
+                    {{ formErrors.City }}
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="State" [matAutocomplete]="auto" formControlName="State">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+                        {{ state }}
+                    </mat-option>
+                </mat-autocomplete>
+                <div *ngIf="formErrors.State" class="text-danger">
+                    {{ formErrors.State }}
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+
+                <input matInput #postalCode maxlength="5" placeholder="Zip" formControlName="Zip">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+
+                <div *ngIf="formErrors.Zip" class="text-danger">
+                    {{ formErrors.Zip }}
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="Country" formControlName="Country">
+                    <mat-option *ngFor="let ctry of country" [value]="ctry.value">
+                        {{ctry.viewValue}}
+                    </mat-option>
+                </mat-select>
+
+                <div *ngIf="formErrors.Country" class="text-danger">
+                    {{ formErrors.Country }}
+                </div>
+            </mat-form-field>
+
+        </div>
+        <!--<div class="example-container frm-ctrl">
+
+            <mat-form-field>
+                <input matInput placeholder="First Name" formControlName="FirstName">
+            </mat-form-field>
+            <mat-input-container>
+
+                <input matInput placeholder="First Name" formControlName="FirstName">
+
+            </mat-input-container>
+
+            <div *ngIf="formErrors.FirstName" class="text-danger">
+                {{ formErrors.FirstName }}
+            </div>
+        </div>
+
+        <div class="frm-ctrl">
+            <mat-input-container>
+
+                <input type="email" matInput placeholder="Email" formControlName="Email">
+
+            </mat-input-container>
+            <div *ngIf="formErrors.Email" class="text-danger">
+                {{ formErrors.Email }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <mat-radio-group formControlName="Gender">
+                <mat-radio-button *ngFor="let gndr of gender" [value]="gndr">
+                    {{gndr}}
+                </mat-radio-button>
+            </mat-radio-group>
+            <div *ngIf="formErrors.Gender" class="text-danger">
+                {{ formErrors.Gender }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="DOB">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!--<input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="DOB">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>-->
+            <!--<mat-input-container style="width:50%">
+                <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="DOB">
+                <button matSuffix [matDatepickerToggle]="picker"></button>
+            </mat-input-container>
+            <mat-datepicker #picker></mat-datepicker>
+            <div *ngIf="formErrors.DOB" class="text-danger">
+                {{ formErrors.DOB }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <div class="line_ctrl">
+                <mat-input-container class="example-full-width">
+                    <input matInput placeholder="City" formControlName="City">
+                </mat-input-container>
+                <div *ngIf="formErrors.City" class="text-danger">
+                    {{ formErrors.City }}
+                </div>
+            </div>
+            <div class="line_ctrl">
+                <mat-input-container>
+                    <input matInput placeholder="State" [matAutocomplete]="auto" formControlName="State">
+                </mat-input-container>
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+                        {{ state }}
+                    </mat-option>
+                </mat-autocomplete>
+                <div *ngIf="formErrors.State" class="text-danger">
+                    {{ formErrors.State }}
+                </div>
+            </div>
+            <div class="line_ctrl">
+                <mat-input-container class="example-full-width">
+                    <input matInput #postalCode maxlength="5" placeholder="Zip" formControlName="Zip">
+                    <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                </mat-input-container>
+                <div *ngIf="formErrors.Zip" class="text-danger">
+                    {{ formErrors.Zip }}
+                </div>
+            </div>
+        </div>
+        <div class="frm-ctrl" style="margin-top:10px;margin-bottom:20px">
+            <!--<mat-select placeholder="Country" formControlName="Country">
+                <mat-option *ngFor="let ctry of country" [value]="ctry.value">
+                    {{ ctry.viewValue }}
+                </mat-option>
+            </mat-select>
+
+            <mat-select placeholder="Country" formControlName="Country">
+                <mat-option *ngFor="let ctry of country" [value]="ctry.value">
+                    {{ctry.viewValue}}
+                </mat-option>
+            </mat-select>
+
+            <div *ngIf="formErrors.Country" class="text-danger">
+                {{ formErrors.Country }}
+            </div>
+        </div>-->
+    </div>
+    <mat-dialog-actions class="mat-dialog-footer" align="end">
+        <button color="warn" type="button" mat-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <button type="submit" color="primary" [disabled]="userFrm.invalid" mat-raised-button>{{modalBtnTitle}}</button>
+    </mat-dialog-actions>
+</form>

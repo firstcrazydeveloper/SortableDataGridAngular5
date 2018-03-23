@@ -1,0 +1,27 @@
+<div>
+    <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon> Menu
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['home']">
+                    <mat-icon>home</mat-icon>
+                    <span>Home</span>
+                </button>
+                <button mat-menu-item [routerLink]="['user']">
+                    <mat-icon>group</mat-icon>
+                    <span>Users Management</span>
+                </button>
+            </mat-menu>
+        </div>
+    </nav>
+    <div class='container'>
+        <router-outlet>
+            <div class="loading-overlay" *ngIf="loading">
+                 show something fancy here, here with Angular 2 Material's loading bar or circle 
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
+        </router-outlet>
+    </div>
+</div>
