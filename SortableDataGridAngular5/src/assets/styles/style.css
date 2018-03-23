@@ -1,15 +1,33 @@
 ﻿.mat-dialog-container {
-  width: 550px;
-  height: 480px;
-  padding-bottom: 20px;
-  padding-top: 20px;
+    width: 550px;
+    height: 480px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.toolbar button {
+    margin: 2px;
+    padding: 0;
+}
+
+.ag-cell {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+.ag-menu {
+    z-index: 50;
 }
 
 .mat-dialog-footer {
-  padding: 20px;
-  width: 100%;
-
+    padding: 20px;
+    width: 100%;
 }
+
 .example-container {
     display: flex;
     flex-direction: column;
@@ -18,28 +36,31 @@
     .example-container > * {
         width: 100%;
     }
+
 mat-input-container {
-  width: 100%;
+    width: 100%;
 }
 
 .frm-ctrl {
-  padding-top: 20px;
-  width: 100%;
+    padding-top: 20px;
+    width: 100%;
 }
 
 .line_ctrl {
-  float: left;
-  width: 145px;
-  text-align: right;
-  margin: 2px;
-  display: inline;
+    float: left;
+    width: 145px;
+    text-align: right;
+    margin: 2px;
+    display: inline;
 }
 
 .example-card {
-  width: 400px;
+    width: 400px;
 }
 
 .example-header-image {
-  background-image: url('../images/users.png');
-  background-size: cover;
+    background-image: url('../images/users.png');
+    background-size: cover;
 }
+
+http://localhost:4200/home

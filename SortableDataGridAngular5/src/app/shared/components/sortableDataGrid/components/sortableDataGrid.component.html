@@ -1,5 +1,5 @@
 ﻿<div *ngIf="isshowfilter && data">
-    <search-list [title]="searchTitle" (change)="criteriaChange($event)"></search-list>
+    <sortableDataGridSearchList [title]="searchTitle" [searchBoxCloseImgUrl]="searchBoxCloseImgUrl" (change)="criteriaChange($event)"></sortableDataGridSearchList>
 </div>
 <br />
 <div *ngIf="data" class="add-btn-postion">
@@ -7,7 +7,7 @@
         <ng-container *ngFor="let hdrbtn of hdrbtns">
             <button *ngIf="!hdrbtn.ishide" type="button" class="btn btn-primary" (click)="click(hdrbtn,null)">{{hdrbtn.title}}</button>
         </ng-container>
-       <button *ngIf="isExporttoCSV && (data!=null && data.length>0)" type="button" class="btn btn-primary" (click)="exporttoCSV()">Export to Excel</button>
+        <button *ngIf="isExporttoCSV && (data!=null && data.length>0)" type="button" class="btn btn-primary" (click)="exporttoCSV()">Export to Excel</button>
     </div>
 </div>
 
@@ -38,9 +38,9 @@
         </tbody>
     </table>
     <div *ngIf='data && data.length==0' class="alert alert-info" role="alert">No record found!</div>
-    <ng-template #loadingScreen>
+    <!--<ng-template #loadingScreen>
         <div class="alert alert-info" role="alert">
             <mat-progress-spinner mode="indeterminate" style="width:50px; height:50px"></mat-progress-spinner>loading...
         </div>
-    </ng-template>
+    </ng-template>-->
 </div>

@@ -10,24 +10,25 @@ import { UserComponent } from './features/user-management/components/users/user.
 import { HomeComponent } from './components/home.component';
 import { UserService } from './features/user-management/services/user.service';
 import { UserFilterPipe } from './filters/user.pipe'
-import { SearchComponent } from './shared/components/search-component/search.component';
 import AppErrorHandler from './shared/error-handler/errorhandler';
 import { ManageUser } from './features/user-management/components/manage-user/manageuser.component';
+import { SortableDataGridModule } from './shared/components/sortableDataGrid/sortableDataGrid.module';
+import { AgGridModule } from "ag-grid-angular";
+import { ProficiencyCellRenderer } from './components/agGrid/ProficiencyCellRenderer/proficiencyCellRenderer.component';
+import { RichGridComponent } from './components/agGrid/richGridComponent/richGrid.component';
+import { EditGridRowComponent } from './components/agGrid/editButtonComponent/editGridRow.component';
 
-import { DataGrid } from './shared/components/datagrid/datagrid.component';
-import { DataGridUtil } from './shared/components/datagrid/datagrid.util';
-import { Format } from './shared/components/datagrid/format';
-import { OrderBy } from './shared/components/datagrid/orderby';
+
 
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, FormsModule,
-        BrowserAnimationsModule, MaterialModule
+        BrowserAnimationsModule, MaterialModule, SortableDataGridModule, AgGridModule.withComponents([
+            ProficiencyCellRenderer, EditGridRowComponent
+        ])
     ],
-    declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
-        DataGrid, Format, OrderBy
-    ],
+    declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, ManageUser, ProficiencyCellRenderer, RichGridComponent, EditGridRowComponent],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, UserService, UserFilterPipe],
-    entryComponents: [ManageUser],
+    entryComponents: [ManageUser, ProficiencyCellRenderer, RichGridComponent, EditGridRowComponent],
     bootstrap: [AppComponent]
 
 })

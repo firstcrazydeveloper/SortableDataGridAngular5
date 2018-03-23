@@ -1,6 +1,6 @@
 ﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
-import {DataGridUtil} from './datagrid.util'
-import { Format } from './format';
+import { SortableDataGridUtil } from '../helper/sortableDataGrid.util'
+import { Format } from '../helper/format';
 
 export interface GridAction {
     action: string,
@@ -11,12 +11,12 @@ export interface GridAction {
 }
 
 @Component({
-    selector: 'data-grid',
-    styleUrls: ['./datagrid.style.css'],
-    templateUrl: './datagrid.component.html'
+    selector: 'sortableDataGrid',
+    styleUrls: ['./sortableDataGrid.component.css'],
+    templateUrl: './sortableDataGrid.component.html'
 })
 
-export class DataGrid {
+export class SortableDataGrid {
 
     //Input Variables
     @Input() columns: any[];
@@ -28,6 +28,7 @@ export class DataGrid {
     @Input() isExporttoCSV: boolean;
     @Input() exportFileName: string;
     @Input() filter: any;
+    @Input() searchBoxCloseImgUrl: string;
 
     //Output Variable
     @Output()
@@ -96,7 +97,7 @@ export class DataGrid {
             exprtcsv.push(obj);
         }
         );
-        DataGridUtil.downloadcsv(exprtcsv, this.exportFileName);
+        SortableDataGridUtil.downloadcsv(exprtcsv, this.exportFileName);
     }
 
 }

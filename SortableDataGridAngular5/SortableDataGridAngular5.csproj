@@ -106,15 +106,36 @@
     </Content>
     <Content Include=".angular-cli.json" />
     <Content Include="package.json" />
+    <Content Include="src\app\components\agGrid\ProficiencyCellRenderer\proficiencyCellRenderer.component.css" />
+    <Content Include="src\app\components\agGrid\richGridComponent\richGrid.component.css" />
+    <Content Include="src\app\components\agGrid\richGridComponent\richGrid.component.html" />
     <Content Include="src\app\features\user-management\components\manage-user\manage-user.component.html" />
     <Content Include="src\app\features\user-management\components\users\user.component.html" />
-    <Content Include="src\app\shared\components\datagrid\datagrid.component.html" />
-    <Content Include="src\app\shared\components\datagrid\datagrid.style.css" />
+    <Content Include="src\app\shared\components\sortableDataGrid\components\sortableDataGrid.component.html" />
+    <Content Include="src\app\shared\components\sortableDataGrid\components\sortableDataGrid.component.css" />
+    <Content Include="src\app\shared\components\sortableDataGrid\components\sortableDataGridSearch.component.css" />
+    <Content Include="src\app\shared\components\sortableDataGrid\components\sortableDataGridSearch.component.html" />
+    <Content Include="src\assets\images\cross.png" />
+    <Content Include="src\assets\images\loading.gif" />
+    <Content Include="src\assets\images\users.png" />
+    <Content Include="src\assets\styles\bootstrap.css" />
+    <Content Include="src\assets\styles\bootstrap.min.css" />
+    <Content Include="src\assets\styles\style.css" />
+    <Content Include="src\fonts\font-awesome.min.css" />
+    <Content Include="src\fonts\fontawesome-webfont.svg" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="src\tsconfig.app.json" />
     <Content Include="src\tsconfig.json" />
     <Content Include="src\tsconfig.spec.json" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
+    <Content Include="src\fonts\fontawesome-webfont.eot" />
+    <Content Include="src\fonts\fontawesome-webfont.ttf" />
+    <Content Include="src\fonts\fontawesome-webfont.woff" />
+    <Content Include="src\fonts\FontAwesome.otf" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -152,19 +173,25 @@
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
+    <TypeScriptCompile Include="src\app\components\agGrid\editButtonComponent\editGridRow.component.ts" />
+    <TypeScriptCompile Include="src\app\components\agGrid\ProficiencyCellRenderer\proficiencyCellRenderer.component.ts" />
+    <TypeScriptCompile Include="src\app\components\agGrid\richGridComponent\richGrid.component.ts" />
+    <TypeScriptCompile Include="src\app\components\agGrid\data\sampleData.ts" />
+    <TypeScriptCompile Include="src\app\components\agGrid\skillsRendererComponent\skillsRenderer.component.ts" />
     <TypeScriptCompile Include="src\app\components\home.component.ts" />
     <TypeScriptCompile Include="src\app\features\user-management\components\manage-user\manageuser.component.ts" />
     <TypeScriptCompile Include="src\app\features\user-management\models\user.ts" />
     <TypeScriptCompile Include="src\app\features\user-management\services\user.service.ts" />
     <TypeScriptCompile Include="src\app\features\user-management\components\users\user.component.ts" />
     <TypeScriptCompile Include="src\app\filters\user.pipe.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\sortableDataGrid\sortableDataGrid.module.ts" />
     <TypeScriptCompile Include="src\app\shared\config\enum.ts" />
     <TypeScriptCompile Include="src\app\shared\config\global.ts" />
-    <TypeScriptCompile Include="src\app\shared\components\datagrid\datagrid.component.ts" />
-    <TypeScriptCompile Include="src\app\shared\components\datagrid\datagrid.util.ts" />
-    <TypeScriptCompile Include="src\app\shared\components\datagrid\format.ts" />
-    <TypeScriptCompile Include="src\app\shared\components\datagrid\orderby.ts" />
-    <TypeScriptCompile Include="src\app\shared\components\search-component\search.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\sortableDataGrid\components\sortableDataGrid.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\sortableDataGrid\helper\sortableDataGrid.util.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\sortableDataGrid\helper\format.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\sortableDataGrid\helper\orderby.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\sortableDataGrid\components\sortableDataGridSearch.component.ts" />
     <TypeScriptCompile Include="src\app\shared\error-handler\errorhandler.ts" />
     <TypeScriptCompile Include="src\app\shared\material.module.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
@@ -180,8 +207,7 @@
   <ItemGroup>
     <Folder Include="dist\" />
     <Folder Include="e2e\" />
-    <Folder Include="src\assets\" />
-    <Folder Include="src\fonts\" />
+    <Folder Include="src\app\shared\components\search-component\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

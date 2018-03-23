@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
     dbops: DBOperation;
     modalTitle: string;
     modalBtnTitle: string;
+    closeImageurl: string = 'assets/images/cross.png';
 
     //Grid Vars start
     columns: any[] = [

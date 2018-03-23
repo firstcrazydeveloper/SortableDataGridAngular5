@@ -1,4 +1,4 @@
-﻿export class DataGridUtil {
+﻿export class SortableDataGridUtil {
 
     public static downloadcsv(data: any, exportFileName: string) {
         var csvData = this.convertToCSV(data);
